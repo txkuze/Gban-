@@ -39,5 +39,11 @@ async def superban_log(
             text,
             disable_web_page_preview=True,
         )
+
+        await app.send_animation(
+            LOG_CHANNEL_ID,
+            animation="https://files.catbox.moe/7osvoi.mp4",  # same as SUPERBANS
+            caption=text,
+    )    
     except:
         pass
