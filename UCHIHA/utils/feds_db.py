@@ -8,3 +8,5 @@ feds = db.feds
 fed_chats = db.fed_chats
 fed_bans = db.fed_bans
 fed_admins = db.fed_admins
+fed_settings = db.fed_settings
+fed_logs = db.fed_logs
