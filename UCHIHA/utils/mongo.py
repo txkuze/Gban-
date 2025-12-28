@@ -81,17 +81,5 @@ async def add_gban(
     async def remove_gban(user_id: int):
     await gbansdb.delete_one({"user_id": user_id})
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 from datetime import datetime
