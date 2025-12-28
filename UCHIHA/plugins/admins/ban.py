@@ -10,6 +10,7 @@ from pyrogram.errors.exceptions.bad_request_400 import (
     BadRequest
 )
 
+from UCHIHA.mongo.gban import is_gbanned
 import datetime
 from UCHIHA import app
 
