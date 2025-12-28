@@ -2,13 +2,15 @@ from .feds_db import feds, fed_chats, fed_bans, fed_admins
 
 
 # CREATE FED
-async def create_fed(fed_id: str, owner: int):
+async def create_fed(fed_id, owner):
     await feds.insert_one({
         "fed_id": fed_id,
-        "owner": owner
+        "owners": [owner]
     })
-
-
+async def is_fed_owner(fed_id, user_id):
+    fed = await feds.find_one({"fed_id": fed_id})
+    return user_id in fed.get("owners", [])
+    
 # LINK CHAT
 async def link_chat(fed_id: str, chat_id: int):
     await fed_chats.update_one(
