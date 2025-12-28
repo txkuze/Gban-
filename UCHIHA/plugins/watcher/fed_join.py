@@ -19,3 +19,16 @@ async def fed_join_ban(_, cm: ChatMemberUpdated):
             await cm.chat.ban_member(user.id)
         except:
             pass
+
+@app.on_chat_member_updated(filters.group)
+async def fedjoin(_, c: ChatMemberUpdated):
+    user = c.new_chat_member.user
+    if not user:
+        return
+
+    fed = await get_chat_fed(c.chat.id)
+    if fed and await is_fedbanned(fed, user.id):
+        try:
+            await c.chat.ban_member(user.id)
+        except:
+            pass
