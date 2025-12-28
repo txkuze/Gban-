@@ -56,11 +56,11 @@ async def start_command_handler(_, m: Message):
         # Display loading messages
         accha = await m.reply_text(text=random.choice(EMOJIOS))
         await asyncio.sleep(1.3)
-        await accha.edit("🏓fairy..ᴍᴇᴇɴʏ..ᴍɪɴʏ..ᴍᴏᴇ✨")
+        await accha.edit("🏓yoo....wassup..wahh✨")
         await asyncio.sleep(0.2)
-        await accha.edit("__fairy..ᴍᴇᴇɴʏ ꨄ sтαятιиg.....__")
+        await accha.edit("superban..gban controller ꨄ sтαятιиg.....__")
         await asyncio.sleep(0.2)
-        await accha.edit("__fairy ꨄ︎ sтαятιиg..__")
+        await accha.edit("gban controller ꨄ︎ sтαятιиg..__")
         await asyncio.sleep(0.2)
         await accha.delete()
         
