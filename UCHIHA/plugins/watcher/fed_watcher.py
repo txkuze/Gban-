@@ -22,3 +22,14 @@ async def fed_auto_ban(_, message):
             await message.chat.ban_member(user_id)
         except ChatAdminRequired:
             pass
+            
+async def fedwatch(_, m):
+    if not m.from_user:
+        return
+
+    fed = await get_chat_fed(m.chat.id)
+    if fed and await is_fedbanned(fed, m.from_user.id):
+        try:
+            await m.chat.ban_member(m.from_user.id)
+        except:
+            pass
