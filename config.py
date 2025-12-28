@@ -1,6 +1,7 @@
 # =====================================
 # BASIC BOT CONFIG
 # =====================================
+import os
 
 API_ID = int(os.getenv("API_ID", "34999060"))
 API_HASH = os.getenv("API_HASH", "8a4b8206da5f273c4147a091a9e9c73f")
