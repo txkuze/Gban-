@@ -1,6 +1,6 @@
 from UCHIHA.utils.mongo import db
 
-HEHE = "6815918609"
+HEHE = "7852340648"
 
 afkdb = db.afk
 
