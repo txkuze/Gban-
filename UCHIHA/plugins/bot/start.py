@@ -38,8 +38,33 @@ NEXI_VID = [
     "https://files.catbox.moe/t0nepm.mp4",
 ]
 
+# Random stickers
+STICKER = [
+    "CAACAgUAAxkBAAEQEGVpSR-TuCKHP8D69SvDAAH2Gn7QjXEAAtIEAAKP9uhXzLPwoqMKxuQ2BA",
+    "CAACAgUAAxkBAAEQEGVpSR-TuCKHP8D69SvDAAH2Gn7QjXEAAtIEAAKP9uhXzLPwoqMKxuQ2BA",
+    "CAACAgUAAxkBAAEQEGVpSR-TuCKHP8D69SvDAAH2Gn7QjXEAAtIEAAKP9uhXzLPwoqMKxuQ2BA",
+]
 
-@PARTH.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
+# Random emojis
+EMOJIOS = ["💣", "💥", "🪄", "🧨", "⚡", "🤡", "👻", "🎃", "🎩", "🕊"]
+
+
+# Command handler for /start and /aistart
+@app.on_cmd(["start", "aistart"])
+async def start_command_handler(_, m: Message):
+    if m.chat.type == ChatType.PRIVATE:
+        # Display loading messages
+        accha = await m.reply_text(text=random.choice(EMOJIOS))
+        await asyncio.sleep(1.3)
+        await accha.edit("🏓fairy..ᴍᴇᴇɴʏ..ᴍɪɴʏ..ᴍᴏᴇ✨")
+        await asyncio.sleep(0.2)
+        await accha.edit("__fairy..ᴍᴇᴇɴʏ ꨄ sтαятιиg.....__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__fairy ꨄ︎ sтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.delete()
+        
+@app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
@@ -86,7 +111,7 @@ async def start_pm(client, message: Message, _):
                 ]
             )
             await m.delete()
-            await PARTH.send_photo(
+            await app.send_photo(
                 chat_id=message.chat.id,
                 photo=thumbnail,
                 caption=searched_text,
@@ -105,13 +130,13 @@ async def start_pm(client, message: Message, _):
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
-            return await PARTH.send_message(
+            return await app.send_message(
                 chat_id=config.LOGGER_ID,
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
 
 
-@PARTH.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
@@ -124,7 +149,7 @@ async def start_gp(client, message: Message, _):
     return await add_served_chat(message.chat.id)
 
 
-@PARTH.on_message(filters.new_chat_members, group=-1)
+@app.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
     for member in message.new_chat_members:
         try:
@@ -135,29 +160,29 @@ async def welcome(client, message: Message):
                     await message.chat.ban_member(member.id)
                 except:
                     pass
-            if member.id == PARTH.id:
+            if member.id == app.id:
                 if message.chat.type != ChatType.SUPERGROUP:
                     await message.reply_text(_["start_4"])
                     return await PARTH.leave_chat(message.chat.id)
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_5"].format(
-                            PARTH.mention,
+                            app.mention,
                             f"https://t.me/{PARTH.username}?start=sudolist",
                             config.SUPPORT_CHAT,
                         ),
                         disable_web_page_preview=True,
                     )
-                    return await PARTH.leave_chat(message.chat.id)
+                    return await app.leave_chat(message.chat.id)
 
                 out = start_panel(_)
                 await message.reply_video(
                     random.choice(NEXI_VID),
                     caption=_["start_3"].format(
                         message.from_user.mention,
-                        PARTH.mention,
+                        app.mention,
                         message.chat.title,
-                        PARTH.mention,
+                        app.mention,
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
