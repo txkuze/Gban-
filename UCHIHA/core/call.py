@@ -54,7 +54,7 @@ class Call(PyTgCalls):
             name="PARTHAss1",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_string=str(config.STRING1),
+            session_string=str(config.STRING_SESSION),
         )
         self.one = PyTgCalls(self.userbot1, cache_duration=100)
 
@@ -62,7 +62,7 @@ class Call(PyTgCalls):
             name="PARTHAss2",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_string=str(config.STRING2),
+            session_string=str(config.STRING_SESSION2),
         )
         self.two = PyTgCalls(self.userbot2, cache_duration=100)
 
@@ -70,7 +70,7 @@ class Call(PyTgCalls):
             name="PARTHXAss3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_string=str(config.STRING3),
+            session_string=str(config.STRING_SESSION3),
         )
         self.three = PyTgCalls(self.userbot3, cache_duration=100)
 
@@ -78,7 +78,7 @@ class Call(PyTgCalls):
             name="PARTHXAss4",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_string=str(config.STRING4),
+            session_string=str(config.STRING_SESSION4),
         )
         self.four = PyTgCalls(self.userbot4, cache_duration=100)
 
@@ -86,7 +86,7 @@ class Call(PyTgCalls):
             name="PARTHAss5",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_string=str(config.STRING5),
+            session_string=str(config.STRING_SESSION5),
         )
         self.five = PyTgCalls(self.userbot5, cache_duration=100)
 
