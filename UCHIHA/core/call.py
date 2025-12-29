@@ -17,7 +17,7 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
-from UCHIHA import LOGGER, YouTube, app
+from UCHIHA import LOGGER, app
 from UCHIHA.misc import db
 from UCHIHA.utils.database import (
     add_active_chat,
