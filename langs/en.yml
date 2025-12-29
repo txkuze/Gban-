@@ -42,6 +42,20 @@ H_B_22 : "✦soon✦"
 H_B_23 : "✦soon✦"
 H_B_24 : "✦soon✦"
 
+call_6: "Unable to stream this video."
+call_7: "Downloading your video..."
+call_8: "No active group call found."
+call_9: "Already joined the voice chat."
+call_10: "Telegram server error occurred."
+
+stream_1: |
+  🎵 **Now Playing**
+  Title: {title}
+  Duration: {duration}
+  Requested by: {user}
+
+stream_2: "Streaming started by {user}"
+
 gban_1 : "<blockquote>✚ ᴡʜʏ ᴅɪᴅ ʏᴏᴜ ᴡᴀɴɴᴀ ɢʙᴀɴ ʏᴏᴜʀsᴇʟғ ʙᴀʙʏ ?</blockquote>"
 gban_2 : "<blockquote>✚ ᴡʜʏ sʜᴏᴜʟᴅ ɪ ɢʙᴀɴ ᴍʏsᴇʟғ ?</blockquote>"
 gban_3 : "<blockquote>✚ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢʙᴀɴ ᴍʏ sᴜᴅᴏᴇʀs.</blockquote>"
