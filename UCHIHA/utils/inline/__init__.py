@@ -1,4 +1,3 @@
 from .help import *
 from .settings import *
 from .start import *
-from .sudolist import *
