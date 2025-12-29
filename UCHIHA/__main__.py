@@ -5,7 +5,7 @@ from pyrogram import idle
 
 import config
 from UCHIHA import LOGGER, app, userbot
-from UCHIHA.core.call import RAUSHAN
+from UCHIHA.core.call import PARTH
 from UCHIHA.misc import sudo
 from UCHIHA.plugins import ALL_MODULES
 from UCHIHA.utils.database import get_banned_users, get_gbanned
@@ -40,8 +40,8 @@ async def init():
         importlib.import_module("UCHIHA.plugins" + all_module)
     LOGGER("UCHIHA.plugins").info(" ✦FEATURES ASSISTED WITH GBAN CONTROLLER🧾 ✦")
     await userbot.start()
-    await RAUSHAN.start()
-    await RAUSHAN.decorators()
+    await PARTH.start()
+    await PARTH.decorators()
     LOGGER("UCHIHA").info("\n ✦🧾 MADE BY PARTH 🧾✦ \n")
     await idle()
     await app.stop()
