@@ -15,11 +15,11 @@ from config import BANNED_USERS
 
 async def init():
     if (
-        not config.STRING1
-        and not config.STRING2
-        and not config.STRING3
-        and not config.STRING4
-        and not config.STRING5
+        not config.STRING_SESSION
+        and not config.STRING_SESSION2
+        and not config.STRING_SESSION3
+        and not config.STRING_SESSION4
+        and not config.STRING_SESSION5
     ):
         LOGGER(__name__).error(
             "✦🧾STRING SESSION IS EMPTY DO FILL THEM SIR IN CONFIG.PY🧾✦"
