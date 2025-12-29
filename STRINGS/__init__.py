@@ -1,34 +1,13 @@
-import os
-from typing import List
-
 import yaml
+import os
 
-languages = {}
-languages_present = {}
+BASE_DIR = os.path.dirname(__file__)
+LANG_PATH = os.path.join(BASE_DIR, "langs", "en.yml")
 
-
-def get_string(lang: str):
-    return languages[lang]
-
-
-for filename in os.listdir(r"./strings/langs/"):
-    if "en" not in languages:
-        languages["en"] = yaml.safe_load(
-            open(r"./strings/langs/en.yml", encoding="utf8")
-        )
-        languages_present["en"] = languages["en"]["name"]
-    if filename.endswith(".yml"):
-        language_name = filename[:-4]
-        if language_name == "en":
-            continue
-        languages[language_name] = yaml.safe_load(
-            open(r"./strings/langs/" + filename, encoding="utf8")
-        )
-        for item in languages["en"]:
-            if item not in languages[language_name]:
-                languages[language_name][item] = languages["en"][item]
+def get_string(key, default=None):
     try:
-        languages_present[language_name] = languages[language_name]["name"]
-    except:
-        print("There is some issue with the language file inside bot.")
-        exit()
+        with open(LANG_PATH, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        return data.get(key, default or key)
+    except Exception:
+        return default or key
